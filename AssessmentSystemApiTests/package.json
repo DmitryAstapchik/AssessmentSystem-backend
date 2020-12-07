@@ -1,0 +1,15 @@
+{
+  "name": "demolabapitests",
+  "version": "1.0.0",
+  "description": "API tests for DemoLab REST API",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "chakram": "^1.5.0",
+    "mocha": "^5.0.0"
+  }
+}

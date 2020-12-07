@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{247B58FC-0029-4E2B-84AA-C6564763FC88}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AssessmentSystem.Data.Access</RootNamespace>
+    <AssemblyName>AssessmentSystem.Data.Access</AssemblyName>
+    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>..\CustomLab.ruleset</CodeAnalysisRuleSet>
+    <DocumentationFile>bin\Debug\AssessmentSystem.Data.Access.xml</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'UAT|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\UAT\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>..\CustomLab.ruleset</CodeAnalysisRuleSet>
+    <DocumentationFile>bin\UAT\AssessmentSystem.Data.Access.xml</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'CI|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\CI\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DocumentationFile>bin\CI\AssessmentSystem.Data.Access.xml</DocumentationFile>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>..\CustomLab.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject, Version=3.3.4.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.3.3.4\lib\net45\Ninject.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Configurations\ExerciseConfiguration.cs" />
+    <Compile Include="Configurations\TaskTipConfiguration.cs" />
+    <Compile Include="Configurations\ExerciseResultConfiguration.cs" />
+    <Compile Include="Configurations\InviteConfiguration.cs" />
+    <Compile Include="Configurations\TestAnswerVariantConfiguration.cs" />
+    <Compile Include="Configurations\TestQuestionConfiguration.cs" />
+    <Compile Include="Context\ApplicationDbContext.cs" />
+    <Compile Include="Context\ExercisesContext.cs" />
+    <Compile Include="Context\Interfaces\IExercisesContext.cs" />
+    <Compile Include="Context\Interfaces\IInvitesContext.cs" />
+    <Compile Include="Context\Interfaces\ITestAssemblyContext.cs" />
+    <Compile Include="Context\InvitesContext.cs" />
+    <Compile Include="Context\TestAssemblyContext.cs" />
+    <Compile Include="EntitySet.cs" />
+    <Compile Include="EntitySetBase.cs" />
+    <Compile Include="ExerciseExecutor\ExerciseResult.cs" />
+    <Compile Include="ExerciseExecutor\TaskResult.cs" />
+    <Compile Include="ExerciseExecutor\TestResult.cs" />
+    <Compile Include="ExerciseExecutor\TestAssemblyInfo.cs" />
+    <Compile Include="ExerciseExecutor\TestClassInfo.cs" />
+    <Compile Include="ExerciseExecutor\TestMethodInfo.cs" />
+    <Compile Include="ExerciseManagement\Exercise.cs" />
+    <Compile Include="ExerciseManagement\Task.cs" />
+    <Compile Include="ExerciseManagement\TaskTip.cs" />
+    <Compile Include="ExerciseManagement\Test.cs" />
+    <Compile Include="ExerciseManagement\TestAnswerVariant.cs" />
+    <Compile Include="ExerciseManagement\TestQuestion.cs" />
+    <Compile Include="IEntitySet.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RegistrationModule.cs" />
+    <Compile Include="UserManagement\Invite.cs" />
+    <Compile Include="Migrations\201804052322233_InitialCreate.cs" />
+    <Compile Include="Migrations\201804052322233_InitialCreate.Designer.cs">
+      <DependentUpon>201804052322233_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201804061852543_AddModuleVersionId.cs" />
+    <Compile Include="Migrations\201804061852543_AddModuleVersionId.Designer.cs">
+      <DependentUpon>201804061852543_AddModuleVersionId.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="..\packages\StyleCop.Analyzers.1.0.2\analyzers\dotnet\cs\StyleCop.Analyzers.CodeFixes.dll" />
+    <Analyzer Include="..\packages\StyleCop.Analyzers.1.0.2\analyzers\dotnet\cs\StyleCop.Analyzers.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201804052322233_InitialCreate.resx">
+      <DependentUpon>201804052322233_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804061852543_AddModuleVersionId.resx">
+      <DependentUpon>201804061852543_AddModuleVersionId.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
